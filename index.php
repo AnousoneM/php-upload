@@ -19,14 +19,11 @@ require_once 'controllers/upload-controller.php';
 
 <body>
 
-    <h1 class="text-center">TP UPLOAD PHP</h1>
+    <h1 class="text-center mt-5">TP UPLOAD PHP</h1>
 
     <div class="row align-items-center flex-column m-0 p-0">
 
-        <div class="col-lg-4 text-center">
-            <!-- preview de l'image -->
-            <img id="imgPreview">
-        </div>
+
 
         <div class="col-lg-4">
 
@@ -36,11 +33,17 @@ require_once 'controllers/upload-controller.php';
                     <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
                 </div>
                 <div class="text-center">
-                    <p class="text-danger"><?= isset($uploadMessage) ? $uploadMessage : ''  ?></p>
+                    <!-- Nous insérons le message d'erreur ou de succés à l'aide d'un echo court et également la syntaxe '??'  -->
+                    <p><?= $uploadMessage ?? ''  ?></p>
                     <button class="btn btn-secondary">Upload</button>
                 </div>
             </form>
 
+        </div>
+
+        <div class="col-lg-4 text-center">
+            <!-- preview de l'image -->
+            <img id="imgPreview">
         </div>
 
     </div>
