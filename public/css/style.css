@@ -1,8 +1,12 @@
 body {
-  background-color: rgb(110, 208, 208);
+  background-color: rgb(212, 212, 212);
 }
 
 #imgPreview {
-  width: 90%;
-  height: auto;
+  width: auto;
+  max-height: 100%;
+}
+
+.preview-area {
+  height: 30vh;
 }

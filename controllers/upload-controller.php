@@ -45,7 +45,7 @@ if (isset($_FILES["fileToUpload"])) {
         if ($uploadOk == true) {
 
             // Nous indiquons le chemin du répertoire dans lequel les images vont être téléchargés.
-            $directory = "public/img/";
+            $directory = "public/gallery/";
 
             // Nous allons définir $new_name qui aura un nom d'image unique avec : la fonction uniqid() et une extension '.webp'
             $new_name = uniqid() . '.webp';
