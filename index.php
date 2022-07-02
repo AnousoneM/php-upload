@@ -23,7 +23,12 @@ require_once 'controllers/upload-controller.php';
 
     <div class="row align-items-center flex-column m-0 p-0">
 
-        <div class="col-lg-3">
+        <div class="text-center message">
+            <!-- Nous insérons le message d'erreur ou de succés à l'aide d'un echo court et également la syntaxe '??'  -->
+            <p><?= $uploadMessage ?? ''  ?></p>
+        </div>
+
+        <div class="col-lg-3 col-11">
 
             <!-- Penser à créer un "form" avec un enctype="multipart/form-data" pour pouvoir upload des fichiers-->
             <form action="" method="POST" enctype="multipart/form-data">
@@ -31,16 +36,16 @@ require_once 'controllers/upload-controller.php';
                     <!-- input type="file" pour recuperer l'image -->
                     <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
                 </div>
+
                 <div class="text-center">
-                    <!-- Nous insérons le message d'erreur ou de succés à l'aide d'un echo court et également la syntaxe '??'  -->
-                    <p><?= $uploadMessage ?? ''  ?></p>
                     <button class="btn btn-dark">Upload</button>
                 </div>
+
             </form>
 
         </div>
 
-        <div class="col-lg-3 bg-light text-center border border-secondary preview-area rounded mt-3 p-2">
+        <div class="col-lg-3 col-11 bg-light text-center border border-secondary preview-area rounded mt-3 p-2">
             <!-- preview de l'image à uploader -->
             <img id="imgPreview" onerror="this.src='public/img/bad-format.png'">
         </div>

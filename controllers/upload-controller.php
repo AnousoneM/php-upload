@@ -8,7 +8,7 @@ if (isset($_FILES["fileToUpload"])) {
 
     // Nous controlons que l'utilisateur à bien sélectionné une image à l'aide du code error, il doit être égal à 0
     if ($_FILES["fileToUpload"]["error"] !== 0) {
-        $uploadMessage = '<span class="h5 text-danger">Veuillez sélectionner une image à uploader<span>';
+        $uploadMessage = '<span class="h6 text-danger">Veuillez sélectionner une image à uploader<span>';
     } else {
 
         // nous allons créer une variable qui va définir si des erreurs sont présentes.
@@ -27,17 +27,17 @@ if (isset($_FILES["fileToUpload"])) {
 
         // strpos() pour rechercher le mot 'image' dans le mime, si nous le trouvons pas, false est retourné
         if (strpos($mime, 'image') === false) {
-            $uploadMessage = '<span class="h5 text-danger">Veuillez sélectionner un fichier de type "image"<span>';
+            $uploadMessage = '<span class="h6 text-danger">Veuillez sélectionner un fichier de type "image"<span>';
             $uploadOk = false;
         }
         // Nous contrôlons la taille de d'image : 8mo = 8000000
         else if ($_FILES["fileToUpload"]["size"] > 8000000) {
-            $uploadMessage = '<span class="h5 text-danger">La taille de l\'image est trop grande<span>';
+            $uploadMessage = '<span class="h6 text-danger">La taille de l\'image est trop grande<span>';
             $uploadOk = false;
         }
         // Nous contrôlons si l'extension n'est pas présente dans le tableau à l'aide la fonction !in_array()
         else if (!in_array($fileExtension, $arrayExtensions)) {
-            $uploadMessage = '<span class="h5 text-danger">Désolé, seuls les formats : jpg, png, jpeg et webp sont autorisés<span>';
+            $uploadMessage = '<span class="h6 text-danger">Désolé, seuls les formats : jpg, png, jpeg et webp sont autorisés<span>';
             $uploadOk = false;
         }
 
@@ -53,7 +53,7 @@ if (isset($_FILES["fileToUpload"])) {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $directory . $new_name)) {
                 $uploadMessage = '<span class="h4 text-success">le fichier a bien été uploadé</span>';
             } else {
-                $uploadMessage = '<span class="h5 text-danger">Erreur lors de l\'upload de votre fichier</span>';
+                $uploadMessage = '<span class="h6 text-danger">Erreur lors de l\'upload de votre fichier</span>';
                 $uploadOk = false;
             }
         }
